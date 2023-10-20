@@ -12,7 +12,8 @@ import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) {
         // Объявление переменных
-        int firstNumber, secondNumber, sum, diff, product, quotient;
+        int firstNumber, secondNumber, sum, diff, product;
+        double quotient;
         // Запрос данных пользователя
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите первое число");
@@ -24,11 +25,11 @@ public class Calculator {
         sum = firstNumber + secondNumber;
         diff = firstNumber - secondNumber;
         product = firstNumber * secondNumber;
-        quotient = firstNumber / secondNumber;
+        quotient = (double) firstNumber / secondNumber;
         // Вывод результатов операций (+, -, *, /)
         System.out.printf("\tРезультат:\nСложение:\n" + firstNumber + " + " + secondNumber + " = %d", sum);
         System.out.printf("\nВычитание:\n" + firstNumber + " - " + secondNumber + " = %d", diff);
         System.out.printf("\nУмножение:\n" + firstNumber + " * " + secondNumber + " = %d", product);
-        System.out.printf("\nДеление:\n" + firstNumber + " / " + secondNumber + " = %d", quotient);
+        System.out.printf("\nДеление:\n" + firstNumber + " / " + secondNumber + " = %.2f", quotient);
     }
 }
