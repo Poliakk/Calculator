@@ -21,8 +21,9 @@ public class Calculator {
         firstNumber = scanner.nextInt();
         System.out.print("Введите второе число: ");
         secondNumber = scanner.nextInt();
+        scanner.close();
         // Операции
-        while (command !=0) {
+        while (command != 0) {
             System.out.println("\nКакое действие выполнить?\n1 - Вычислить сумму\n2 - Вычислить разность\n" +
                     "3 - Вычислить произведение\n4 - Вычислить частное\n0 - Выйти из приложения");
             command = scanner.nextInt();
@@ -40,8 +41,12 @@ public class Calculator {
                     System.out.printf("Произведение: " + firstNumber + " * " + secondNumber + " = %d\n", product);
                     break;
                 case 4:
-                    quotient = (double) firstNumber / secondNumber;
-                    System.out.printf("Частное: " + firstNumber + " / " + secondNumber + " = %.2f\n", quotient);
+                    if (secondNumber != 0) {
+                        quotient = (double) firstNumber / secondNumber;
+                        System.out.printf("Частное: " + firstNumber + " / " + secondNumber + " = %.2f\n", quotient);
+                    } else {
+                        System.out.println("Деление на ноль невозможно.");
+                    }
                     break;
                 case 0:
                     System.out.println("Приложение закрыто");
@@ -50,6 +55,5 @@ public class Calculator {
                     System.out.println("Несуществующая команда. Выберите из предложенных вариантов.");
             }
         }
-        scanner.close();
     }
 }
